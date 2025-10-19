@@ -17,8 +17,8 @@ export const UPDATE_URLS = {
     'https://github.com/lyswhut/lx-music-mobile/releases/download/v{version}/{filename}',
     // 添加镜像
     'https://download.fastgit.org/lyswhut/lx-music-mobile/releases/download/v{version}/{filename}',
-    'https://hub.fastgit.xyz/lyswhut/lx-music-mobile/releases/download/v{version}/{filename}'
-  ]
+    'https://hub.fastgit.xyz/lyswhut/lx-music-mobile/releases/download/v{version}/{filename}',
+  ],
 }
 
 export const RETRY_TIMES = 3
@@ -30,5 +30,5 @@ export default {
   UPDATE_URLS,
   RETRY_TIMES,
   RETRY_DELAY,
-  TIMEOUT
+  TIMEOUT,
 }

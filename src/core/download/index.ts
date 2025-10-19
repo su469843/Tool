@@ -33,7 +33,7 @@ const updateProgress = throttle((musicInfo: DownloadMusicInfo, downloaded: numbe
     downloaded,
     total,
     progress: Math.floor(downloaded / total * 100),
-    speed: `${Math.floor(downloaded / 1024)}KB/s`
+    speed: `${Math.floor(downloaded / 1024)}KB/s`,
   }
 }, 1000)
 
@@ -45,9 +45,9 @@ const startTask = async(downloadInfo: DownloadMusicInfo) => {
       downloaded: 0,
       total: 0,
       progress: 0,
-      speed: '0KB/s'
+      speed: '0KB/s',
     },
-    statusText: '准备下载...'
+    statusText: '准备下载...',
   }
   downloadingTasks.set(downloadInfo.musicInfo.id, task)
 
@@ -69,7 +69,7 @@ const startTask = async(downloadInfo: DownloadMusicInfo) => {
       },
       progress({ bytesWritten }) {
         updateProgress(downloadInfo, bytesWritten, task.progress.total)
-      }
+      },
     })
 
     task.cancel = () => {

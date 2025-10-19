@@ -1,4 +1,8 @@
 {
   "name": "Tool",
-  "displayName": "Tool"
+  "displayName": "Tool",
+  "project": {
+    "projectName": "Tool",
+    "projectId": "io.qzz.hightime.tool"
+  }
 }

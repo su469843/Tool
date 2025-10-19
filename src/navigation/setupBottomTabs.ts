@@ -62,7 +62,7 @@ export async function setupBottomTabs() {
   ]
 
   const children = await Promise.all(
-    tabs.map(async (tab) => {
+    tabs.map(async(tab) => {
       const icons = await getTabIcon(tab.name)
 
       return {
@@ -99,7 +99,7 @@ export async function setupBottomTabs() {
           },
         },
       }
-    })
+    }),
   )
 
   return Navigation.setRoot({

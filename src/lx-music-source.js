@@ -8,9 +8,9 @@
  */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-var __webpack_exports__ = {};
+let __webpack_exports__ = {};
 
-;// CONCATENATED MODULE: ./src/lx.js
+// CONCATENATED MODULE: ./src/lx.js
 const { EVENT_NAMES: lx_EVENT_NAMES, on, send: lx_send, request, utils: lxUtils, version, currentScriptInfo } = globalThis.lx
 // console.log(globalThis.lx)
 
@@ -32,7 +32,6 @@ const utils = {
 const currentScript = currentScriptInfo
   ? currentScriptInfo.rawScript
   : document.getElementsByTagName('script')[0].innerText
-
 
 
 ;// CONCATENATED MODULE: ./src/apis/kw.js
@@ -186,7 +185,7 @@ const getToken = () => new Promise((resolve, reject) => {
   },
 });
 
-;// CONCATENATED MODULE: ./src/apis/kg.js
+// CONCATENATED MODULE: ./src/apis/kg.js
 
 
 // const qualitys = {
@@ -226,7 +225,7 @@ const getToken = () => new Promise((resolve, reject) => {
   },
 });
 
-;// CONCATENATED MODULE: ./src/apis/tx.js
+// CONCATENATED MODULE: ./src/apis/tx.js
 
 
 const fileConfig = {
@@ -315,8 +314,7 @@ const fileConfig = {
   },
 });
 
-;// CONCATENATED MODULE: ./src/utils.js
-
+// CONCATENATED MODULE: ./src/utils.js
 
 
 const buf2hex = buffer => { // buffer is an ArrayBuffer
@@ -365,7 +363,6 @@ const compareVersions = ((prep, l, i, r) => (a, b) => {
   .split('.'))
 
 ;// CONCATENATED MODULE: ./src/apis/wy.js
-
 
 
 const parse = (str) => {
@@ -438,7 +435,7 @@ if (wy_token) wy_cookie = `MUSIC_U=${wy_token}; ` + wy_cookie
   },
 });
 
-;// CONCATENATED MODULE: ./src/apis/mg.js
+// CONCATENATED MODULE: ./src/apis/mg.js
 
 
 const mg_qualitys = {
@@ -530,12 +527,7 @@ const mg_qualitys = {
   },
 });
 
-;// CONCATENATED MODULE: ./src/apis/index.js
-
-
-
-
-
+// CONCATENATED MODULE: ./src/apis/index.js
 
 
 /* harmony default export */ const apis = ({
@@ -546,11 +538,9 @@ const mg_qualitys = {
   mg: mg,
 });
 
-;// CONCATENATED MODULE: ./package.json
+// CONCATENATED MODULE: ./package.json
 const package_namespaceObject = /*#__PURE__*/JSON.parse('{"UU":"lx-music-source","rE":"1.1.2","cy":"lyswhut"}');
-;// CONCATENATED MODULE: ./src/update.js
-
-
+// CONCATENATED MODULE: ./src/update.js
 
 
 const address = [
@@ -596,8 +586,6 @@ const checkLatestVersion = async() => {
 }
 
 ;// CONCATENATED MODULE: ./src/index.js
-
-
 
 
 // console.log(window.lx)
