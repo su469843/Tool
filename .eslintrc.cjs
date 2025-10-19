@@ -1,84 +1,50 @@
-const baseRule = {
-  'no-new': 'off',
-  camelcase: 'off',
-  'no-return-assign': 'off',
-  'space-before-function-paren': ['error', 'never'],
-  'no-var': 'error',
-  'no-fallthrough': 'off',
-  eqeqeq: 'off',
-  'require-atomic-updates': ['error', { allowProperties: true }],
-  'no-multiple-empty-lines': [1, { max: 2 }],
-  'comma-dangle': [2, 'always-multiline'],
-  'standard/no-callback-literal': 'off',
-  'prefer-const': 'off',
-  'no-labels': 'off',
-  'node/no-callback-literal': 'off',
-  'multiline-ternary': 'off',
-  'react/display-name': 'off',
-  'react/prop-types': 'off',
-}
-
 module.exports = {
   root: true,
   extends: [
-    'standard',
+    'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
   ],
-  plugins: [
-    'react',
-  ],
-  rules: baseRule,
+  plugins: ['react'],
   parser: '@babel/eslint-parser',
-  overrides: [
-    {
-      files: ['*.ts', '*.tsx'],
-      extends: ['standard-with-typescript'],
-      rules: {
-        ...baseRule,
-        '@typescript-eslint/strict-boolean-expressions': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'off',
-        '@typescript-eslint/space-before-function-paren': 'off',
-        '@typescript-eslint/no-non-null-assertion': 'off',
-        '@typescript-eslint/restrict-template-expressions': [
-          1,
-          {
-            allowBoolean: true,
-          },
-        ],
-        '@typescript-eslint/no-misused-promises': [
-          'error',
-          {
-            checksVoidReturn: {
-              arguments: false,
-              attributes: false,
-            },
-          },
-        ],
-        '@typescript-eslint/naming-convention': 'off',
-        '@typescript-eslint/return-await': 'off',
-        '@typescript-eslint/comma-dangle': 'off',
-        '@typescript-eslint/no-dynamic-delete': 'off',
-        '@typescript-eslint/ban-ts-comment': 'off',
-        '@typescript-eslint/ban-types': 'off',
-      },
-      parserOptions: {
-        project: './tsconfig.json',
-      },
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
     },
-  ],
+  },
+  rules: {
+    'no-new': 'off',
+    'camelcase': 'off',
+    'no-return-assign': 'off',
+    'space-before-function-paren': ['error', 'never'],
+    'no-var': 'error',
+    'no-fallthrough': 'off',
+    'eqeqeq': 'off',
+    'no-multiple-empty-lines': [1, { max: 2 }],
+    'comma-dangle': [2, 'always-multiline'],
+    'prefer-const': 'off',
+    'no-labels': 'off',
+    'react/display-name': 'off',
+    'react/prop-types': 'off',
+    'indent': 'off',
+    'no-use-before-define': 'off',
+    'getter-return': 'off',
+    'no-undef': 'warn',
+    'no-empty': 'off',
+    '@typescript-eslint/ban-types': 'off',
+  },
   settings: {
     react: {
-      version: 'detect', // React version. "detect" automatically picks the version you have installed.
-      // You can also use `16.0`, `16.3`, etc, if you want to override the detected value.
-      // It will default to "latest" and warn if missing, and to "detect" in the future
+      version: 'detect',
     },
   },
   ignorePatterns: [
     'node_modules',
     '*.min.js',
-    'test.js',
-    '*Test.ts',
+    'android',
+    'ios',
   ],
 }

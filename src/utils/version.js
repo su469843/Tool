@@ -15,7 +15,8 @@ const abis = [
 import config from '@/config/update'
 const { UPDATE_URLS, RETRY_TIMES, RETRY_DELAY, TIMEOUT } = config
 
-const address = UPDATE_URLS.VERSION_INFO.map(url => [url, 'direct']),
+const address = [
+  ...UPDATE_URLS.VERSION_INFO.map(url => [url, 'direct']),
   ['https://registry.npmmirror.com/lx-music-mobile-version-info/latest', 'npm'],
   ['https://gitee.com/lyswhut/lx-music-mobile-versions/raw/master/version.json', 'direct'],
   ['http://cdn.stsky.cn/lx-music/mobile/version.json', 'direct'],
@@ -124,34 +125,6 @@ export const downloadNewVersion = async(version, onDownload = noop) => {
     }
   }
   throw new Error('All download attempts failed')
-  let savePath = temporaryDirectoryPath + '/lx-music-mobile.apk'
-
-  if (downloadJobId) stopDownload(downloadJobId)
-
-  const { jobId, promise } = downloadFile(url, savePath, {
-    progressInterval: 500,
-    connectionTimeout: 20000,
-    readTimeout: 30000,
-    begin({ statusCode, contentLength }) {
-      onDownload(contentLength, 0)
-      // switch (statusCode) {
-      //   case 200:
-      //   case 206:
-      //     break
-      //   default:
-      //     onDownload(null, contentLength, 0)
-      //     break
-      // }
-    },
-    progress({ contentLength, bytesWritten }) {
-      onDownload(contentLength, bytesWritten)
-    },
-  })
-  downloadJobId = jobId
-  return promise.then(() => {
-    apkSavePath = savePath
-    return updateApp()
-  })
 }
 
 export const updateApp = async() => {
