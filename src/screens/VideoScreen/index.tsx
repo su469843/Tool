@@ -59,7 +59,7 @@ const VideoScreen: React.FC = () => {
   }, [])
 
   // 加载播放记录
-  const loadPlayRecords = async () => {
+  const loadPlayRecords = async() => {
     try {
       const records = await AsyncStorage.getItem(PLAY_RECORDS_KEY)
       if (records) {
@@ -71,7 +71,7 @@ const VideoScreen: React.FC = () => {
   }
 
   // 加载搜索历史
-  const loadSearchHistory = async () => {
+  const loadSearchHistory = async() => {
     try {
       const history = await AsyncStorage.getItem(SEARCH_HISTORY_KEY)
       if (history) {
@@ -83,7 +83,7 @@ const VideoScreen: React.FC = () => {
   }
 
   // 搜索视频
-  const handleSearch = async (query: string) => {
+  const handleSearch = async(query: string) => {
     if (!query.trim()) {
       Alert.alert('提示', '请输入搜索关键词')
       return
@@ -100,7 +100,7 @@ const VideoScreen: React.FC = () => {
       } else {
         // 并行获取分辨率
         const videosWithResolution = await Promise.all(
-          results.map(async (result: any) => ({
+          results.map(async(result: any) => ({
             id: result.id,
             title: result.title,
             poster: result.poster,
@@ -110,7 +110,7 @@ const VideoScreen: React.FC = () => {
             year: result.year,
             description: result.desc,
             resolution: await videoAPI.getResolutionFromM3U8(result.episodes?.[0] || ''),
-          }))
+          })),
         )
         setVideos(videosWithResolution)
       }
@@ -130,7 +130,7 @@ const VideoScreen: React.FC = () => {
   }
 
   // 选择视频
-  const handleSelectVideo = async (video: Video) => {
+  const handleSelectVideo = async(video: Video) => {
     setSelectedVideo(video)
 
     // 检查是否有播放记录
@@ -146,7 +146,7 @@ const VideoScreen: React.FC = () => {
   }
 
   // 播放视频
-  const handlePlay = async () => {
+  const handlePlay = async() => {
     if (!selectedVideo) return
 
     setIsPlaying(true)
@@ -207,7 +207,7 @@ const VideoScreen: React.FC = () => {
   }
 
   // 下拉刷新
-  const handleRefresh = async () => {
+  const handleRefresh = async() => {
     setRefreshing(true)
     try {
       if (searchQuery) {
@@ -360,7 +360,7 @@ const VideoScreen: React.FC = () => {
             <View style={styles.historyHeader}>
               <Text style={styles.historyTitle}>搜索历史</Text>
               <TouchableOpacity
-                onPress={async () => {
+                onPress={async() => {
                   setSearchHistory([])
                   await AsyncStorage.removeItem(SEARCH_HISTORY_KEY)
                 }}

@@ -34,7 +34,7 @@ export default () => {
         <View style={styles.progressBar}>
           <View style={[styles.progress, { 
             backgroundColor: theme['c-primary'],
-            width: `${item.progress * 100}%`
+            width: `${item.progress * 100}%`,
           }]} />
         </View>
       )}
@@ -53,42 +53,42 @@ export default () => {
 
 const styles = createStyle({
   container: {
-    flex: 1
+    flex: 1,
   },
   listItem: {
     padding: 15,
     borderBottomWidth: 0.5,
-    borderBottomColor: 'rgba(0, 0, 0, 0.1)'
+    borderBottomColor: 'rgba(0, 0, 0, 0.1)',
   },
   musicInfo: {
-    marginBottom: 8
+    marginBottom: 8,
   },
   musicName: {
     fontSize: 16,
-    marginBottom: 4
+    marginBottom: 4,
   },
   musicSinger: {
-    fontSize: 14
+    fontSize: 14,
   },
   downloadInfo: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 4
+    marginBottom: 4,
   },
   statusText: {
-    fontSize: 12
+    fontSize: 12,
   },
   progressText: {
-    fontSize: 12
+    fontSize: 12,
   },
   progressBar: {
     height: 2,
     backgroundColor: 'rgba(0, 0, 0, 0.1)',
-    borderRadius: 1
+    borderRadius: 1,
   },
   progress: {
     height: '100%',
-    borderRadius: 1
-  }
+    borderRadius: 1,
+  },
 })

@@ -19,7 +19,7 @@ class DownloadQueue {
       ...musicInfo,
       progress: 0,
       status: 'pending',
-      statusText: '等待下载...'
+      statusText: '等待下载...',
     }
     this.queue.push(downloadInfo)
     if (!this.downloading) this.startDownload()
@@ -37,7 +37,7 @@ class DownloadQueue {
       const url = await getMusicUrl({
         musicInfo,
         isRefresh: false,
-        quality: settingState.setting['download.quality']
+        quality: settingState.setting['download.quality'],
       })
 
       // Download file

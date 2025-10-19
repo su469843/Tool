@@ -1,7 +1,7 @@
 import { PermissionsAndroid, Platform } from 'react-native'
 import { toast } from '@/utils/tools'
 
-export const requestStoragePermission = async () => {
+export const requestStoragePermission = async() => {
   if (Platform.OS !== 'android') return true
 
   try {
@@ -12,8 +12,8 @@ export const requestStoragePermission = async () => {
         message: "下载音乐需要访问您的存储空间",
         buttonNeutral: "稍后询问",
         buttonNegative: "取消",
-        buttonPositive: "确定"
-      }
+        buttonPositive: "确定",
+      },
     )
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
       return true
@@ -28,7 +28,7 @@ export const requestStoragePermission = async () => {
   }
 }
 
-export const createDownloadDir = async (path: string) => {
+export const createDownloadDir = async(path: string) => {
   if (Platform.OS !== 'android') return true
   
   try {

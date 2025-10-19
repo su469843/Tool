@@ -14,6 +14,12 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+    requireConfigFile: false,
+  },
+  env: {
+    node: true,
+    browser: true,
+    es2020: true,
   },
   rules: {
     'no-new': 'off',

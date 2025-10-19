@@ -57,7 +57,7 @@ const WeatherScreen: React.FC = () => {
     loadWidgets()
   }, [])
 
-  const loadWeatherData = async () => {
+  const loadWeatherData = async() => {
     try {
       const stored = await AsyncStorage.getItem(WEATHER_STORAGE_KEY)
       if (stored) {
@@ -72,7 +72,7 @@ const WeatherScreen: React.FC = () => {
     }
   }
 
-  const loadWidgets = async () => {
+  const loadWidgets = async() => {
     try {
       const stored = await AsyncStorage.getItem(WIDGETS_STORAGE_KEY)
       if (stored) {
@@ -83,7 +83,7 @@ const WeatherScreen: React.FC = () => {
     }
   }
 
-  const handleRefresh = async () => {
+  const handleRefresh = async() => {
     setRefreshing(true)
     setTimeout(() => {
       setRefreshing(false)
@@ -91,7 +91,7 @@ const WeatherScreen: React.FC = () => {
     }, 1000)
   }
 
-  const handleAddCity = async () => {
+  const handleAddCity = async() => {
     if (!cityInput.trim()) {
       Alert.alert('提示', '请输入城市名称')
       return
@@ -114,7 +114,7 @@ const WeatherScreen: React.FC = () => {
     setModalVisible(false)
   }
 
-  const handleDeleteCity = async (id: string) => {
+  const handleDeleteCity = async(id: string) => {
     const updated = weatherData.filter((w) => w.id !== id)
     setWeatherData(updated)
     await AsyncStorage.setItem(WEATHER_STORAGE_KEY, JSON.stringify(updated))
@@ -124,7 +124,7 @@ const WeatherScreen: React.FC = () => {
     await AsyncStorage.setItem(WIDGETS_STORAGE_KEY, JSON.stringify(updatedWidgets))
   }
 
-  const handleAddWidget = async (weather: WeatherData) => {
+  const handleAddWidget = async(weather: WeatherData) => {
     const existing = widgets.find((w) => w.id === weather.id)
     if (existing) {
       Alert.alert('提示', '该城市已添加小组件')

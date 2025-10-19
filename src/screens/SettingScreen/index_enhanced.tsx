@@ -58,7 +58,7 @@ const SettingScreen: React.FC = () => {
   }, [])
 
   // 加载设置
-  const loadSettings = async () => {
+  const loadSettings = async() => {
     try {
       const stored = await AsyncStorage.getItem(SETTINGS_KEY)
       if (stored) {
@@ -70,7 +70,7 @@ const SettingScreen: React.FC = () => {
   }
 
   // 保存设置
-  const saveSettings = async (newSettings: Settings) => {
+  const saveSettings = async(newSettings: Settings) => {
     try {
       setSettings(newSettings)
       await AsyncStorage.setItem(SETTINGS_KEY, JSON.stringify(newSettings))

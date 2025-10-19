@@ -72,12 +72,12 @@ export class VideoAPI {
   async searchVideo(
     query: string,
     resourceId: string,
-    signal?: AbortSignal
+    signal?: AbortSignal,
   ): Promise<SearchResult[]> {
     try {
       const response = await fetch(
         `${this.baseURL}/api/search/one?q=${encodeURIComponent(query)}&resourceId=${resourceId}`,
-        { signal }
+        { signal },
       )
       const data = await response.json()
       return data.results || []
@@ -114,7 +114,7 @@ export class VideoAPI {
   async getVideoDetail(source: string, id: string): Promise<SearchResult | null> {
     try {
       const response = await fetch(
-        `${this.baseURL}/api/detail?source=${source}&id=${id}`
+        `${this.baseURL}/api/detail?source=${source}&id=${id}`,
       )
       const data = await response.json()
       return data || null
@@ -204,11 +204,11 @@ export class VideoAPI {
     type: 'movie' | 'tv',
     tag: string,
     pageSize: number = 16,
-    pageStart: number = 0
+    pageStart: number = 0,
   ): Promise<SearchResult[]> {
     try {
       const response = await fetch(
-        `${this.baseURL}/api/douban?type=${type}&tag=${encodeURIComponent(tag)}&pageSize=${pageSize}&pageStart=${pageStart}`
+        `${this.baseURL}/api/douban?type=${type}&tag=${encodeURIComponent(tag)}&pageSize=${pageSize}&pageStart=${pageStart}`,
       )
       const data = await response.json()
       return data.list || []
