@@ -1,0 +1,29 @@
+name: Update Mirrors
+
+on:
+  release:
+    types: [published]
+    
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Push to Gitee Mirror
+        uses: wearerequired/git-mirror-action@v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_PRIVATE_KEY }}
+        with:
+          source-repo: git@github.com:lyswhut/lx-music-mobile.git
+          destination-repo: git@gitee.com:lyswhut/lx-music-mobile.git
+
+      - name: Build Gitee Pages
+        uses: yanglbme/gitee-pages-action@main
+        with:
+          gitee-username: lyswhut
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          gitee-repo: lyswhut/lx-music-mobile
+          branch: master
