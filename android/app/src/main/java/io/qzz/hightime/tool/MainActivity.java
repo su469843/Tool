@@ -1,7 +1,6 @@
 package io.qzz.hightime.tool;
 
 import android.os.Bundle;
-
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
@@ -19,16 +18,21 @@ public class MainActivity extends ReactActivity {
   }
 
   /**
-   * Returns the instance of the {@link ReactActivityDelegate}. Here we use a util class {@link
-   * DefaultReactActivityDelegate} which allows you to easily enable Fabric and Concurrent React
-   * (aka React 18) with two boolean flags.
+   * Returns the instance of the {@link ReactActivityDelegate}. Here we use a {@link
+   * DefaultReactActivityDelegate} which allows you to enable New Architecture with a single flag
+   * `fabricEnabled`. You can also use {@link ReactActivityDelegate} if you need more control.
    */
   @Override
   protected ReactActivityDelegate createReactActivityDelegate() {
     return new DefaultReactActivityDelegate(
         this,
         getMainComponentName(),
-        // If you opted-in for the New Architecture, we enable the Fabric Renderer.
+        // If you opted-in for the New Architecture, you need to enable the Fabric Renderer.
         DefaultNewArchitectureEntryPoint.getFabricEnabled());
+  }
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
   }
 }
